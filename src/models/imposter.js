@@ -89,6 +89,20 @@ function create (Protocol, request) {
 
                 options = options || {};
 
+                if (options.matches) {
+                    var matches = [];
+                    server.stubs.forEach(function (stub) {
+                        if (stub.matches) {
+                            stub.matches.forEach(function (m){
+                                matches.push(m);
+                            });
+                        }
+                    });
+                    matches.reverse();
+                    result.matches = matches;
+                    return result;
+                }
+
                 if (!options.list) {
                     addDetailsTo(result);
                 }

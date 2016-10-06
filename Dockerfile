@@ -1,0 +1,7 @@
+FROM node:6.7.0
+
+COPY . /app
+WORKDIR /app
+RUN npm install
+EXPOSE 2525 2526 2527 2528 2529 2530 2531 2532
+CMD npm start
